@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💍 Invitación de Boda - Proyecto Next.js
 
-## Getting Started
+Una hermosa invitación de boda digital creada con Next.js, TypeScript y CSS moderno.
 
-First, run the development server:
+## ✨ Características
+
+- 🎨 Diseño elegante y responsivo
+- 📱 Optimizado para móviles y desktop
+- ⏰ Contador regresivo hasta el día de la boda
+- 📸 Galería de fotos
+- 📍 Información de ubicación con Google Maps
+- 👔 Código de vestimenta
+- 🎁 Registro de regalos
+- ✅ Formulario RSVP conectado a Google Sheets
+- 🎵 Reproductor de música
+
+## 🚀 Inicio Rápido
+
+### 1. Instalar dependencias
+
+```bash
+npm install
+```
+
+### 2. Configurar Google Sheets (para el formulario RSVP)
+
+**Importante:** Sigue las instrucciones detalladas en el archivo `INSTRUCCIONES_GOOGLE_SHEETS.md` para configurar la integración con Google Sheets.
+
+Una vez que hayas obtenido la URL de tu Google Apps Script:
+
+1. Copia el archivo `.env.example` a `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Edita `.env.local` y reemplaza la URL con la tuya:
+   ```
+   NEXT_PUBLIC_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/TU_SCRIPT_ID_REAL/exec
+   ```
+
+### 3. Ejecutar el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📋 Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+invitacion-boda/
+├── app/                    # Páginas y rutas de Next.js
+├── components/             # Componentes React
+│   ├── Hero.tsx           # Sección principal
+│   ├── Countdown.tsx      # Contador regresivo
+│   ├── EventDetails.tsx   # Detalles del evento
+│   ├── Gallery.tsx        # Galería de fotos
+│   ├── RSVP.tsx          # Formulario de confirmación
+│   └── ...
+├── styles/                # Módulos CSS
+├── public/                # Archivos estáticos
+│   ├── images/           # Imágenes
+│   └── music/            # Archivos de audio
+├── data/                  # Datos de la aplicación
+└── INSTRUCCIONES_GOOGLE_SHEETS.md  # Guía de configuración
+```
 
-## Learn More
+## 🔧 Personalización
 
-To learn more about Next.js, take a look at the following resources:
+### Cambiar información de la boda
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edita el archivo `data/weddingData.ts` para actualizar:
+- Nombres de los novios
+- Fecha y hora del evento
+- Ubicaciones
+- Información de contacto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Cambiar imágenes
 
-## Deploy on Vercel
+Reemplaza las imágenes en la carpeta `public/images/` con tus propias fotos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Cambiar música
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Reemplaza el archivo de música en `public/music/` con tu canción favorita.
+
+## 📊 Ver las Confirmaciones
+
+Todas las confirmaciones de asistencia se guardarán automáticamente en tu Google Sheet. Puedes:
+- Ver las respuestas en tiempo real
+- Compartir la hoja con otras personas
+- Exportar los datos a Excel si lo necesitas
+- Crear gráficos y análisis
+
+## 🌐 Despliegue
+
+### Opción 1: Vercel (Recomendado)
+
+1. Sube tu código a GitHub
+2. Ve a [Vercel](https://vercel.com)
+3. Importa tu repositorio
+4. Agrega la variable de entorno `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` en la configuración
+5. ¡Despliega!
+
+### Opción 2: Netlify
+
+1. Sube tu código a GitHub
+2. Ve a [Netlify](https://netlify.com)
+3. Importa tu repositorio
+4. Agrega la variable de entorno en la configuración
+5. ¡Despliega!
+
+## 📝 Notas Importantes
+
+- El archivo `.env.local` NO se sube a GitHub por seguridad
+- Asegúrate de configurar las variables de entorno en tu plataforma de despliegue
+- Las confirmaciones se guardan directamente en Google Sheets, sin necesidad de base de datos
+
+## 🆘 Soporte
+
+Si tienes problemas con la configuración de Google Sheets, revisa el archivo `INSTRUCCIONES_GOOGLE_SHEETS.md` o contacta al desarrollador.
+
+## 📄 Licencia
+
+Este proyecto es de uso personal para tu boda. ¡Disfrútalo! 💕
+

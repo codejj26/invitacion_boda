@@ -50,17 +50,48 @@ export default function RSVP({ guestName, guestId }: RSVPProps) {
             }
         }
 
-        // Aquí puedes integrar con tu backend o servicio de email
-        console.log('RSVP Data:', {
-            guestId,
-            attending,
-            numberOfGuests: attending === 'yes' ? numberOfGuests : 0,
-            guestNames: attending === 'yes' ? guestNames : []
-        });
+        // Validar que quien no asiste también ponga su nombre
+        if (attending === 'no' && !guestNames[0]?.trim()) {
+            alert('Por favor ingresa tu nombre');
+            return;
+        }
 
-        // Simular envío
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setSubmitted(true);
+        try {
+            // Preparar los datos para enviar
+            const formData = {
+                guestId,
+                attending,
+                numberOfGuests: attending === 'yes' ? numberOfGuests : 0,
+                guestNames: attending === 'yes' ? guestNames : [guestNames[0]]
+            };
+
+            // Obtener la URL del Google Script desde las variables de entorno
+            const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+
+            if (!scriptUrl) {
+                console.error('URL del Google Script no configurada');
+                alert('Error de configuración. Por favor contacta al administrador.');
+                return;
+            }
+
+            // Enviar los datos a Google Sheets
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors', // Importante para Google Apps Script
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            // Con mode: 'no-cors', no podemos leer la respuesta, pero si llegamos aquí, se envió
+            console.log('Confirmación enviada exitosamente');
+            setSubmitted(true);
+
+        } catch (error) {
+            console.error('Error al enviar la confirmación:', error);
+            alert('Hubo un error al enviar tu confirmación. Por favor intenta de nuevo.');
+        }
     };
 
     if (submitted) {
