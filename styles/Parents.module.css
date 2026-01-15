@@ -1,0 +1,130 @@
+.parents {
+    background: linear-gradient(180deg, #ffffff 0%, var(--background) 100%);
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.parents h2 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.parentsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+}
+
+.parentCard {
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.parentCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.parentCard:hover {
+    transform: translateY(-10px);
+}
+
+.parentCard:hover::before {
+    opacity: 1;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    color: var(--secondary);
+    background: linear-gradient(135deg, rgba(255, 213, 243, 0.2) 0%, rgba(255, 228, 247, 0.2) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+}
+
+.icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.parentCard:hover .icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(255, 213, 243, 0.4) 0%, rgba(255, 228, 247, 0.4) 100%);
+}
+
+.parentCard h3 {
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.names {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.parentName {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-family: var(--font-serif);
+    letter-spacing: 0.05em;
+}
+
+.separator {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    font-family: var(--font-serif);
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .parentsGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .parentCard {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .parentCard h3 {
+        font-size: 1.3rem;
+    }
+
+    .parentName {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,69 @@
+.countdown {
+    background: linear-gradient(180deg, var(--background) 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.countdown h2 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.timerGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+}
+
+.timeCard {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.timeCard:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.number {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    background: linear-gradient(var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.label {
+    font-size: 1rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .timerGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .timeCard {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timerGrid {
+        gap: 0.8rem;
+    }
+
+    .timeCard {
+        padding: 1.5rem 0.8rem;
+    }
+}

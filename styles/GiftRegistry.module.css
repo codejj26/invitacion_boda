@@ -1,0 +1,312 @@
+.giftRegistry {
+    background: linear-gradient(180deg, #ffffff 0%, var(--background) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.giftRegistry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.giftRegistry h2 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.giftsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+.giftCard {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.giftCard::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 213, 243, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.giftCard:hover::before {
+    opacity: 1;
+}
+
+.iconWrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 213, 243, 0.15) 0%, rgba(212, 165, 216, 0.15) 100%);
+    border-radius: 50%;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-normal);
+}
+
+.giftCard:hover .icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(255, 213, 243, 0.4);
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkleFloat 3s ease-in-out infinite;
+    opacity: 0;
+}
+
+.sparkle:nth-child(1) {
+    top: 0;
+    left: 0;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+    top: 0;
+    right: 0;
+    animation-delay: 1s;
+}
+
+.sparkle:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 2s;
+}
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1);
+    }
+}
+
+.giftCard h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.description {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--secondary);
+    font-weight: 500;
+    padding: 1rem;
+    background: rgba(255, 213, 243, 0.1);
+    border-radius: 12px;
+    transition: all var(--transition-fast);
+}
+
+.detailItem:hover {
+    background: rgba(255, 213, 243, 0.2);
+    transform: translateX(5px);
+}
+
+.detailItem svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.storesList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.storeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--text-dark);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.storeButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.storeButton:hover::before {
+    left: 100%;
+}
+
+.storeButton:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.storeButton svg {
+    width: 24px;
+    height: 24px;
+}
+
+.thankYouNote {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 213, 243, 0.12) 0%, rgba(212, 165, 216, 0.12) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 213, 243, 0.3);
+    position: relative;
+}
+
+.thankYouNote::before,
+.thankYouNote::after {
+    content: '"';
+    position: absolute;
+    font-size: 4rem;
+    color: var(--secondary);
+    opacity: 0.2;
+    font-family: var(--font-serif);
+}
+
+.thankYouNote::before {
+    top: 1rem;
+    left: 1.5rem;
+}
+
+.thankYouNote::after {
+    bottom: 1rem;
+    right: 1.5rem;
+    transform: rotate(180deg);
+}
+
+.thankYouNote p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.thankYouNote strong {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .giftsGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .giftCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .iconWrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icon {
+        width: 80px;
+        height: 80px;
+        padding: 1.2rem;
+    }
+
+    .thankYouNote {
+        padding: 2rem 1.5rem;
+    }
+
+    .thankYouNote::before,
+    .thankYouNote::after {
+        font-size: 3rem;
+    }
+}
