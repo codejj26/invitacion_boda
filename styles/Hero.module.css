@@ -82,7 +82,7 @@
 
 .bride,
 .groom {
-    font-size: clamp(4rem, 10vw, 6rem);
+    font-size: clamp(60px, 20vw, 9rem);
     color: var(--text-dark);
     letter-spacing: 0.05em;
     font-family: 'Satisfy', cursive !important;
