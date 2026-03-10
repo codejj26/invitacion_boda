@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Cormorant_Garamond, Montserrat, Parisienne, Dancing_Script, Alex_Brush,Pinyon_Script } from 'next/font/google'
+import { Playfair_Display, Cormorant_Garamond, Montserrat, Parisienne, Dancing_Script, Alex_Brush, Pinyon_Script } from 'next/font/google'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -63,7 +63,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="es" className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable} ${parisienne.variable} ${dancing.variable} ${pinyon.variable}`}>
+        <html lang="es" className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable} ${parisienne.variable} ${dancing.variable} ${pinyon.variable}`} suppressHydrationWarning>
             <body>{children}</body>
         </html>
     )

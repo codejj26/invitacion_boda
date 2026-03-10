@@ -23,13 +23,13 @@ export default function Hero({ guestName, passes }: HeroProps) {
 
                 <div className={styles.names}>
                     <h1 className={`${styles.groom} animate-slide-in-left delay-200`}>
-                        JUAN JOSE
+                        Juan Jose
                     </h1>
                     <div className={`${styles.ampersand} animate-scale-in delay-300`}>
                         &
                     </div>
                     <h1 className={`${styles.bride} animate-slide-in-right delay-200`}>
-                        LEIDY
+                        Leidy
                     </h1>
                 </div>
 
