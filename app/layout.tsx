@@ -64,7 +64,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="es" className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable} ${parisienne.variable} ${dancing.variable} ${pinyon.variable}`} suppressHydrationWarning>
-            <body>{children}</body>
+            <body suppressHydrationWarning>{children}</body>
         </html>
     )
 }
