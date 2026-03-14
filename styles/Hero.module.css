@@ -82,14 +82,14 @@
 
 .bride,
 .groom {
-    font-size: clamp(4rem, 20vw, 4rem);
+    font-size: clamp(3.5rem, 20vw, 3.5rem);
     color: var(--text-dark);
     letter-spacing: 0.05em;
-    font-family: 'Explora', serif !important;
+    font-family: var(--font-serif);
     opacity: 0;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1), 4px 4px 4px rgba(0, 0, 0, 0.1);
     animation-fill-mode: forwards;
-    -webkit-text-stroke: 5px var(--text-dark);
+    -webkit-text-stroke: 1px var(--text-dark);
 }
 
 .ampersand {
